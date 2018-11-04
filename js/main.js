@@ -12,11 +12,16 @@ class Tamagotchi {
     constructor(name) {
         this.name = name;
         this.weight = 50;
+        this.sleepy = 8;
+        this.drinking = 2;
+        this.joyful = 50;
+
     }
 
     weightLoss() {
         this.weight = this.weight - 2;
     };
+
 
     sayHello () {
         let userName = prompt('What is your name?', 'Enter your name');
@@ -27,8 +32,8 @@ class Tamagotchi {
 
 
     sleep(){
-        let sleepy = confirm('Do you want to sleep' + ',' + this.name + '?');
-        if (sleepy) {
+        this.sleepy = prompt('how many hours did you sleep' + ',' + this.name + '?');
+        if (this.sleepy < 8) {
             alert ('sleep a little bit, ' + this.name );
         } else {
             alert(this.name +',' + ' it\'s time to eat');
@@ -51,11 +56,22 @@ class Tamagotchi {
 
 
     drink(){
-        let drinking = confirm('Do you want to drink' + ',' + this.name + '?');
-        alert(drinking);
+        this.drinking = prompt('how much water did you drink' + ',' + this.name + '?');
 
-        if(drinking){
-            alert('Drink.....')
+        if(this.drinking >= 2){
+            alert('stop drinking')
+        } else {
+            alert('drink.....')
+        }
+    }
+
+    happy () {
+       this.joyful = prompt(this.name + ',' + 'how happy are you?' + '?');
+
+        if(this.joyful > 50) {
+            alert('scratch the ears')
+        } else {
+            alert('Strongly hug and give a tastiest')
         }
     }
 
@@ -98,11 +114,16 @@ setTimeout(() => {
 },5000);
 
 setTimeout(() => {
-    doggy.sick();
+    doggy.happy();
 },6000);
+
+setTimeout(() => {
+    doggy.sick();
+},7000);
+
 setTimeout(() => {
     doggy.died();
-},7000);
+},8000);
 
 
 

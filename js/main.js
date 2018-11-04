@@ -15,7 +15,6 @@ class Tamagotchi {
         this.sleepy = 8;
         this.drinking = 2;
         this.joyful = 50;
-
     }
 
     weightLoss() {
